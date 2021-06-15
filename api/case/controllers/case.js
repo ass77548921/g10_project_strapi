@@ -7,7 +7,7 @@
  module.exports = {
    crudPage: async (ctx) => {
      try {
-       const response = await fetch("http://localhost:1337/cases");
+       const response = await fetch("https://g10-project2.herokuapp.com/cases");
        const data = await response.json();
        //console.log("crudPage", data);
        return await ctx.render("crud_case/index", { data });
@@ -47,7 +47,7 @@
  
      try {
        // await db.query("INSERT INTO books SET ?", form_data);
-       const response = await fetch("http://localhost:1337/cases", {
+       const response = await fetch("https://g10-project2.herokuapp.com/cases", {
          method: "post",
          body: JSON.stringify(form_data), 
          headers: { "Content-Type": "application/json" },
@@ -70,7 +70,7 @@
      const id = ctx.params.id;
      try {
        // const [rows] = await db.query("SELECT * FROM books WHERE id = ?", [id]);
-       const response = await fetch(`http://localhost:1337/cases/${id}`);
+       const response = await fetch(`https://g10-project2.herokuapp.com/cases/${id}`);
        const data = await response.json();
        return await ctx.render("crud_case/edit", {
         id:data.id,
@@ -103,7 +103,7 @@
         
        };
      try {
-       const response = await fetch(`http://localhost:1337/cases/${id}`, {
+       const response = await fetch(`https://g10-project2.herokuapp.com/cases/${id}`, {
          method: "put",
          body: JSON.stringify(form_data), 
          headers: { "Content-Type": "application/json" },
@@ -119,7 +119,7 @@
  
    try {
      // await db.query("DELETE FROM books WHERE id = ?", [id]);
-     const response = await fetch(`http://localhost:1337/cases/${id}`, {
+     const response = await fetch(`https://g10-project2.herokuapp.com/cases/${id}`, {
        method: "delete",
      });
      const data = await response.json();

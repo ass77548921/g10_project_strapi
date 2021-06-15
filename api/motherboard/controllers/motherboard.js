@@ -5,7 +5,7 @@ const fetch = require("node-fetch");
 module.exports = {
   crudPage: async (ctx) => {
     try {
-      const response = await fetch("http://localhost:1337/motherboards");
+      const response = await fetch("https://g10-project2.herokuapp.com/motherboards");
       const data = await response.json();
       //console.log("crudPage", data);
       return await ctx.render("crud_motherboard/index", { data });
@@ -45,7 +45,7 @@ module.exports = {
 
     try {
       // await db.query("INSERT INTO books SET ?", form_data);
-      const response = await fetch("http://localhost:1337/motherboards", {
+      const response = await fetch("https://g10-project2.herokuapp.com/motherboards", {
         method: "post",
         body: JSON.stringify(form_data), 
         headers: { "Content-Type": "application/json" },
@@ -68,7 +68,7 @@ module.exports = {
     const id = ctx.params.id;
     try {
       // const [rows] = await db.query("SELECT * FROM books WHERE id = ?", [id]);
-      const response = await fetch(`http://localhost:1337/motherboards/${id}`);
+      const response = await fetch(`https://g10-project2.herokuapp.com/motherboards/${id}`);
       const data = await response.json();
       return await ctx.render("crud_motherboard/edit", {
         id: data.id,
@@ -102,7 +102,7 @@ module.exports = {
         ram_type
       };
     try {
-      const response = await fetch(`http://localhost:1337/motherboards/${id}`, {
+      const response = await fetch(`https://g10-project2.herokuapp.com/motherboards/${id}`, {
         method: "put",
         body: JSON.stringify(form_data), 
         headers: { "Content-Type": "application/json" },
@@ -118,7 +118,7 @@ module.exports = {
 
   try {
     // await db.query("DELETE FROM books WHERE id = ?", [id]);
-    const response = await fetch(`http://localhost:1337/motherboards/${id}`, {
+    const response = await fetch(`https://g10-project2.herokuapp.com/motherboards/${id}`, {
       method: "delete",
     });
     const data = await response.json();

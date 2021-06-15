@@ -10,7 +10,7 @@
  module.exports = {
    crudPage: async (ctx) => {
      try {
-       const response = await fetch("http://localhost:1337/cpus");
+       const response = await fetch("https://g10-project2.herokuapp.com/cpus");
        const data = await response.json();
       // console.log("crud_CPU_Page", data);
        return await ctx.render("crud_cpu/index", { data });
@@ -47,7 +47,7 @@
  
      try {
        // await db.query("INSERT INTO books SET ?", form_data);
-       const response = await fetch("http://localhost:1337/cpus", {
+       const response = await fetch("https://g10-project2.herokuapp.com/cpus", {
          method: "post",
          body: JSON.stringify(form_data), 
          headers: { "Content-Type": "application/json" },
@@ -69,7 +69,7 @@
      const id = ctx.params.id;
      try {
        // const [rows] = await db.query("SELECT * FROM books WHERE id = ?", [id]);
-       const response = await fetch(`http://localhost:1337/cpus/${id}`);
+       const response = await fetch(`https://g10-project2.herokuapp.com/cpus/${id}`);
        const data = await response.json();
        return await ctx.render("crud_cpu/edit", {
          id: data.id,
@@ -100,7 +100,7 @@
       GHz,
      };
      try {
-       const response = await fetch(`http://localhost:1337/cpus/${id}`, {
+       const response = await fetch(`https://g10-project2.herokuapp.com/cpus/${id}`, {
          method: "put",
          body: JSON.stringify(form_data), 
          headers: { "Content-Type": "application/json" },
@@ -116,7 +116,7 @@
  
    try {
      // await db.query("DELETE FROM books WHERE id = ?", [id]);
-     const response = await fetch(`http://localhost:1337/cpus/${id}`, {
+     const response = await fetch(`https://g10-project2.herokuapp.com/cpus/${id}`, {
        method: "delete",
      });
      const data = await response.json();
