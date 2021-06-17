@@ -3,6 +3,17 @@
 const fetch = require("node-fetch");
 
 module.exports = {
+  homePage: async (ctx) => {
+    try{
+      const response = await fetch("https://g10-project2.herokuapp.com/rams");
+      const data = await response.json();
+      return await ctx.render("html/ram",{
+        data
+      });
+    } catch(err){
+      console.log("Errors on getting ram!");
+    }
+  },
   crudPage: async (ctx) => {
     try {
       const response = await fetch("https://g10-project2.herokuapp.com/rams");

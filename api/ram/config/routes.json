@@ -2,6 +2,14 @@
   "routes": [
     {
       "method": "GET",
+      "path": "/api/ram",
+      "handler": "ram.homePage",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/rams",
       "handler": "ram.find",
       "config": {

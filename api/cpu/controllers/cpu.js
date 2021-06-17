@@ -8,6 +8,17 @@
  const fetch = require("node-fetch");
 
  module.exports = {
+  homePage: async (ctx) => {
+    try{
+      const response = await fetch("https://g10-project2.herokuapp.com/cpus");
+      const data = await response.json();
+      return await ctx.render("html/cpu",{
+        data
+      });
+    } catch(err){
+      console.log("Errors on getting cpu!");
+    }
+  },
    crudPage: async (ctx) => {
      try {
        const response = await fetch("https://g10-project2.herokuapp.com/cpus");

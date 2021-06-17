@@ -2,6 +2,14 @@
   "routes": [
     {
       "method": "GET",
+      "path": "/api/case",
+      "handler": "case.homePage",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/cases",
       "handler": "case.find",
       "config": {

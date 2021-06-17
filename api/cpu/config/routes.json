@@ -8,7 +8,14 @@
         "policies": []
       }
     },
-  
+    {
+      "method": "GET",
+      "path": "/api/cpu",
+      "handler": "cpu.homePage",
+      "config": {
+        "policies": []
+      }
+    },
     {
       "method": "GET",
       "path": "/crud_cpu",

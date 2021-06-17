@@ -2,6 +2,14 @@
   "routes": [
     {
       "method": "GET",
+      "path": "/api/motherboard",
+      "handler": "motherboard.homePage",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/motherboards",
       "handler": "motherboard.find",
       "config": {
