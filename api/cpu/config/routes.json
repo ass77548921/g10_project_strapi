@@ -103,6 +103,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method":"GET",
+      "path": "/api/cpu/:id",
+      "handler": "cpu.cpu_id",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

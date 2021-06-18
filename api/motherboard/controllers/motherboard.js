@@ -137,5 +137,14 @@ module.exports = {
     console.log(err);
   }
   return await ctx.redirect("/crud_motherboard");
-  }
+  },
+
+////////////// project  /////////////////
+projectPage: async(ctx) =>{
+  const id = ctx.params.id;
+const data= await fetch(`https://g10-project2.herokuapp.com/motherboards/${id}`);
+return await ctx.render("html/motherboard",{data});
+}
+
+
 };

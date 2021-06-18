@@ -1,5 +1,6 @@
 'use strict';
 
+const { assert } = require("console");
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
  * to customize this controller
@@ -135,5 +136,15 @@
      console.log(err);
    }
    return await ctx.redirect("/crud_cpu");
+   },
+   cpu_id: async(ctx)=> {
+     const id= ctx.params.id;
+     const response = await fetch(`https://g10-project2.herokuapp.com/cpus/${id}`);
+     const cdata = await response.json();
+     const data=cdata.motherboard;
+
+    return await ctx.render("html/motherboard",{
+        data
+    });
    }
  };

@@ -2,8 +2,8 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/api/motherboard",
-      "handler": "motherboard.homePage",
+      "path": "/api/motherboard/:id",
+      "handler": "motherboard.projectPage",
       "config": {
         "policies": []
       }
@@ -146,7 +146,8 @@
         "policies": []
       }
     },
-    {
+    
+    { 
       "method": "GET",
       "path": "/crud_motherboard/delete/:id",
       "handler": "motherboard.crud_delete",
