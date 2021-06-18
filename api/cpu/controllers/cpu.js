@@ -144,7 +144,7 @@ const { assert } = require("console");
      const data=cdata.motherboard;
 
     return await ctx.render("html/motherboard",{
-        data
+        data,cdata
     });
    }
  };

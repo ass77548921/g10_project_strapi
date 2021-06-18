@@ -1,13 +1,6 @@
 {
   "routes": [
-    {
-      "method": "GET",
-      "path": "/api/motherboard/:id",
-      "handler": "motherboard.projectPage",
-      "config": {
-        "policies": []
-      }
-    },
+    
     {
       "method": "GET",
       "path": "/motherboards",
@@ -52,6 +45,15 @@
       "method": "DELETE",
       "path": "/motherboards/:id",
       "handler": "motherboard.delete",
+      "config": {
+        "policies": []
+      }
+    },
+
+    {
+      "method": "GET",
+      "path": "/api/motherboard_id/:cid/:id",
+      "handler": "motherboard.motherboard_id",
       "config": {
         "policies": []
       }

@@ -103,6 +103,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/api/ram_id/:cid/:mid/:id",
+      "handler": "ram.ram_id",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

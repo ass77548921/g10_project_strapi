@@ -130,5 +130,18 @@ module.exports = {
     console.log(err);
   }
   return await ctx.redirect("/crud_ram");
+  },
+
+  ram_id: async(ctx)=>{
+    const rid = ctx.params.id;
+    const cid = ctx.params.cid;
+    const mid = ctx.params.mid;
+
+    const response = await fetch(`https://g10-project2.herokuapp.com/motherboards/${mid}`);
+    const mdata=await response.json();
+    const data=mdata.case;
+    return await ctx.render("html/case",{
+      data,mid,cid,rid
+    });
   }
 };

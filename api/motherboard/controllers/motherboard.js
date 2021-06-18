@@ -139,12 +139,19 @@ module.exports = {
   return await ctx.redirect("/crud_motherboard");
   },
 
-////////////// project  /////////////////
-projectPage: async(ctx) =>{
-  const id = ctx.params.id;
-const data= await fetch(`https://g10-project2.herokuapp.com/motherboards/${id}`);
-return await ctx.render("html/motherboard",{data});
+
+
+
+
+motherboard_id: async(ctx)=> {
+  const mid= ctx.params.id;
+  const cid=ctx.params.cid;
+  const response = await fetch(`https://g10-project2.herokuapp.com/motherboards/${mid}`);
+  const mdata = await response.json();
+  const data=mdata.rams;
+
+ return await ctx.render("html/ram",{
+     data,mdata,cid
+ });
 }
-
-
-};
+}
