@@ -138,6 +138,29 @@
      console.log(err);
    }
    return await ctx.redirect("/crud_case");
+   },
+
+   final:async(ctx)=>{
+     const cid= ctx.params.cid;
+     const mid= ctx.params.mid;
+     const rid= ctx.params.rid;
+     const caid= ctx.params.caid;
+     const response = await fetch(`https://g10-project2.herokuapp.com/cpus/${cid}`);
+     const cdata= await response.json();;
+     const response2 = await fetch(`https://g10-project2.herokuapp.com/motherboards/${mid}`);
+     const mdata= await response2.json();;
+     const response3 = await fetch(`https://g10-project2.herokuapp.com/rams/${rid}`);
+     const rdata= await response3.json();;
+     const response4= await fetch(`https://g10-project2.herokuapp.com/cases/${caid}`);
+     const cadata= await response4.json();;
+
+     console.log(cadata);
+
+     return await ctx.render("html/selection_list",{
+      cdata,mdata,rdata,cadata
+  });
+
    }
+
  };
  

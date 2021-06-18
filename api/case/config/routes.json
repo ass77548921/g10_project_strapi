@@ -2,6 +2,15 @@
   "routes": [
     {
       "method": "GET",
+      "path": "/api/selectfinal/:cid/:mid/:rid/:caid",
+      "handler": "case.final",
+      "config": {
+        "policies": []
+      }
+    },
+   
+    {
+      "method": "GET",
       "path": "/api/case",
       "handler": "case.homePage",
       "config": {
