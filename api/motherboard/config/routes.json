@@ -1,6 +1,13 @@
 {
   "routes": [
-    
+    {
+      "method": "GET",
+      "path": "/api/motherboard",
+      "handler": "motherboard.homePage",
+      "config": {
+        "policies": []
+      }
+    },
     {
       "method": "GET",
       "path": "/motherboards",
@@ -49,7 +56,6 @@
         "policies": []
       }
     },
-
     {
       "method": "GET",
       "path": "/api/motherboard_id/:cid/:id",

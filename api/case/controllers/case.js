@@ -7,9 +7,9 @@
  module.exports = {
   homePage: async (ctx) => {
     try{
-      const response = await fetch("https://g10-project2.herokuapp.com/cases");
+      const response = await fetch("https://g10-project-strapi.herokuapp.com/cases");
       const data = await response.json();
-      return await ctx.render("html/case",{
+      return await ctx.render("html/list/case",{
         data
       });
     } catch(err){
@@ -18,7 +18,7 @@
   },
    crudPage: async (ctx) => {
      try {
-       const response = await fetch("https://g10-project2.herokuapp.com/cases");
+       const response = await fetch("https://g10-project-strapi.herokuapp.com/cases");
        const data = await response.json();
        //console.log("crudPage", data);
        return await ctx.render("crud_case/index", { data });
@@ -58,7 +58,7 @@
  
      try {
        // await db.query("INSERT INTO books SET ?", form_data);
-       const response = await fetch("https://g10-project2.herokuapp.com/cases", {
+       const response = await fetch("https://g10-project-strapi.herokuapp.com/cases", {
          method: "post",
          body: JSON.stringify(form_data), 
          headers: { "Content-Type": "application/json" },
@@ -81,7 +81,7 @@
      const id = ctx.params.id;
      try {
        // const [rows] = await db.query("SELECT * FROM books WHERE id = ?", [id]);
-       const response = await fetch(`https://g10-project2.herokuapp.com/cases/${id}`);
+       const response = await fetch(`https://g10-project-strapi.herokuapp.com/cases/${id}`);
        const data = await response.json();
        return await ctx.render("crud_case/edit", {
         id:data.id,
@@ -114,7 +114,7 @@
         
        };
      try {
-       const response = await fetch(`https://g10-project2.herokuapp.com/cases/${id}`, {
+       const response = await fetch(`https://g10-project-strapi.herokuapp.com/cases/${id}`, {
          method: "put",
          body: JSON.stringify(form_data), 
          headers: { "Content-Type": "application/json" },
@@ -130,7 +130,7 @@
  
    try {
      // await db.query("DELETE FROM books WHERE id = ?", [id]);
-     const response = await fetch(`https://g10-project2.herokuapp.com/cases/${id}`, {
+     const response = await fetch(`https://g10-project-strapi.herokuapp.com/cases/${id}`, {
        method: "delete",
      });
      const data = await response.json();
@@ -145,13 +145,13 @@
      const mid= ctx.params.mid;
      const rid= ctx.params.rid;
      const caid= ctx.params.caid;
-     const response = await fetch(`https://g10-project2.herokuapp.com/cpus/${cid}`);
+     const response = await fetch(`https://g10-project-strapi.herokuapp.com/cpus/${cid}`);
      const cdata= await response.json();;
-     const response2 = await fetch(`https://g10-project2.herokuapp.com/motherboards/${mid}`);
+     const response2 = await fetch(`https://g10-project-strapi.herokuapp.com/motherboards/${mid}`);
      const mdata= await response2.json();;
-     const response3 = await fetch(`https://g10-project2.herokuapp.com/rams/${rid}`);
+     const response3 = await fetch(`https://g10-project-strapi.herokuapp.com/rams/${rid}`);
      const rdata= await response3.json();;
-     const response4= await fetch(`https://g10-project2.herokuapp.com/cases/${caid}`);
+     const response4= await fetch(`https://g10-project-strapi.herokuapp.com/cases/${caid}`);
      const cadata= await response4.json();;
 
      console.log(cadata);

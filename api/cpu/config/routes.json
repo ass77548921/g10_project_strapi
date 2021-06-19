@@ -18,6 +18,14 @@
     },
     {
       "method": "GET",
+      "path": "/api",
+      "handler": "cpu.apiPage",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/crud_cpu",
       "handler": "cpu.crudPage",
       "config": {

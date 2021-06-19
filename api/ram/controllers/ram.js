@@ -5,9 +5,9 @@ const fetch = require("node-fetch");
 module.exports = {
   homePage: async (ctx) => {
     try{
-      const response = await fetch("https://g10-project2.herokuapp.com/rams");
+      const response = await fetch("https://g10-project-strapi.herokuapp.com/rams");
       const data = await response.json();
-      return await ctx.render("html/ram",{
+      return await ctx.render("html/list/ram",{
         data
       });
     } catch(err){
@@ -16,7 +16,7 @@ module.exports = {
   },
   crudPage: async (ctx) => {
     try {
-      const response = await fetch("https://g10-project2.herokuapp.com/rams");
+      const response = await fetch("https://g10-project-strapi.herokuapp.com/rams");
       const data = await response.json();
       console.log("crudramPage", data);
       return await ctx.render("crud_ram/index", { data });
@@ -53,7 +53,7 @@ module.exports = {
 
     try {
       // await db.query("INSERT INTO books SET ?", form_data);
-      const response = await fetch("https://g10-project2.herokuapp.com/rams", {
+      const response = await fetch("https://g10-project-strapi.herokuapp.com/rams", {
         method: "post",
         body: JSON.stringify(form_data), 
         headers: { "Content-Type": "application/json" },
@@ -75,7 +75,7 @@ module.exports = {
     const id = ctx.params.id;
     try {
       // const [rows] = await db.query("SELECT * FROM books WHERE id = ?", [id]);
-      const response = await fetch(`https://g10-project2.herokuapp.com/rams/${id}`);
+      const response = await fetch(`https://g10-project-strapi.herokuapp.com/rams/${id}`);
       const data = await response.json();
       return await ctx.render("crud_ram/edit", {
         id: data.id,
@@ -106,7 +106,7 @@ module.exports = {
       type,
     };
     try {
-      const response = await fetch(`https://g10-project2.herokuapp.com/rams/${id}`, {
+      const response = await fetch(`https://g10-project-strapi.herokuapp.com/rams/${id}`, {
         method: "put",
         body: JSON.stringify(form_data), 
         headers: { "Content-Type": "application/json" },
@@ -122,7 +122,7 @@ module.exports = {
 
   try {
     // await db.query("DELETE FROM books WHERE id = ?", [id]);
-    const response = await fetch(`https://g10-project2.herokuapp.com/rams/${id}`, {
+    const response = await fetch(`https://g10-project-strapi.herokuapp.com/rams/${id}`, {
       method: "delete",
     });
     const data = await response.json();
@@ -137,7 +137,7 @@ module.exports = {
     const cid = ctx.params.cid;
     const mid = ctx.params.mid;
 
-    const response = await fetch(`https://g10-project2.herokuapp.com/motherboards/${mid}`);
+    const response = await fetch(`https://g10-project-strapi.herokuapp.com/motherboards/${mid}`);
     const mdata=await response.json();
     const data=mdata.case;
     return await ctx.render("html/case",{

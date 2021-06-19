@@ -1,6 +1,6 @@
 'use strict';
 
-const { assert } = require("console");
+
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
  * to customize this controller
@@ -9,9 +9,9 @@ const { assert } = require("console");
  const fetch = require("node-fetch");
 
  module.exports = {
-  homePage: async (ctx) => {
+  apiPage: async (ctx) => {
     try{
-      const response = await fetch("https://g10-project2.herokuapp.com/cpus");
+      const response = await fetch("https://g10-project-strapi.herokuapp.com/cpus");
       const data = await response.json();
       return await ctx.render("html/cpu",{
         data
@@ -20,9 +20,20 @@ const { assert } = require("console");
       console.log("Errors on getting cpu!");
     }
   },
+  homePage: async (ctx) => {
+    try{
+      const response = await fetch("https://g10-project-strapi.herokuapp.com/cpus");
+      const data = await response.json();
+      return await ctx.render("html/list/cpu",{
+        data
+      });
+    } catch(err){
+      console.log("Errors on getting cpu!");
+    }
+  },
    crudPage: async (ctx) => {
      try {
-       const response = await fetch("https://g10-project2.herokuapp.com/cpus");
+       const response = await fetch("https://g10-project-strapi.herokuapp.com/cpus");
        const data = await response.json();
       // console.log("crud_CPU_Page", data);
        return await ctx.render("crud_cpu/index", { data });
@@ -59,7 +70,7 @@ const { assert } = require("console");
  
      try {
        // await db.query("INSERT INTO books SET ?", form_data);
-       const response = await fetch("https://g10-project2.herokuapp.com/cpus", {
+       const response = await fetch("https://g10-project-strapi.herokuapp.com/cpus", {
          method: "post",
          body: JSON.stringify(form_data), 
          headers: { "Content-Type": "application/json" },
@@ -81,7 +92,7 @@ const { assert } = require("console");
      const id = ctx.params.id;
      try {
        // const [rows] = await db.query("SELECT * FROM books WHERE id = ?", [id]);
-       const response = await fetch(`https://g10-project2.herokuapp.com/cpus/${id}`);
+       const response = await fetch(`https://g10-project-strapi.herokuapp.com/cpus/${id}`);
        const data = await response.json();
        return await ctx.render("crud_cpu/edit", {
          id: data.id,
@@ -112,7 +123,7 @@ const { assert } = require("console");
       GHz,
      };
      try {
-       const response = await fetch(`https://g10-project2.herokuapp.com/cpus/${id}`, {
+       const response = await fetch(`https://g10-project-strapi.herokuapp.com/cpus/${id}`, {
          method: "put",
          body: JSON.stringify(form_data), 
          headers: { "Content-Type": "application/json" },
@@ -128,7 +139,7 @@ const { assert } = require("console");
  
    try {
      // await db.query("DELETE FROM books WHERE id = ?", [id]);
-     const response = await fetch(`https://g10-project2.herokuapp.com/cpus/${id}`, {
+     const response = await fetch(`https://g10-project-strapi.herokuapp.com/cpus/${id}`, {
        method: "delete",
      });
      const data = await response.json();
@@ -139,7 +150,7 @@ const { assert } = require("console");
    },
    cpu_id: async(ctx)=> {
      const id= ctx.params.id;
-     const response = await fetch(`https://g10-project2.herokuapp.com/cpus/${id}`);
+     const response = await fetch(`https://g10-project-strapi.herokuapp.com/cpus/${id}`);
      const cdata = await response.json();
      const data=cdata.motherboard;
 
