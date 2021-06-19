@@ -112,7 +112,7 @@
      const core = ctx.request.body.core;
      const socket_id = ctx.request.body.socket_id;
      const image_url = ctx.request.body.image_url;
-     constGHz = ctx.request.body.type;
+     const GHz = ctx.request.body.type;
      console.log(name, core, socket_id, image_url,GHz,id);
    
      const form_data = {
